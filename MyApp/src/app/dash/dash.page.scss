@@ -18,6 +18,12 @@ ion-card.expanded {
 ion-card {
   margin-left: 0;  // Kapalı durumda
 }
+ion-card.closed {
+  margin-left: -260px;      /* Kartı sola kaydır */
+  opacity: 0.0;             /* İsteğe bağlı: görünürlüğü azalt */
+  pointer-events: none;     /* Tıklamaları kapat (isteğe bağlı) */
+}
+
 
 .chart-container {
   display: flex;

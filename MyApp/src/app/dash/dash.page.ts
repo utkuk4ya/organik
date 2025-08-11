@@ -52,9 +52,10 @@ export class DashPage implements OnInit {
     this.isFaturaExpanded = !this.isFaturaExpanded;
   }
 
-  toggleDashboard() {
+  /*toggleDashboard() {
     this.isDashboardExpanded = !this.isDashboardExpanded;  // Toggle state değişimi
-  }
+  }*/
+  toggleDashboard() { this.isDashboardClosed = !this.isDashboardClosed; }
 
   toggleAboneler() {
     this.isAbonelerExpanded = !this.isAbonelerExpanded;
