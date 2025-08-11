@@ -1,0 +1,1170 @@
+{
+	"info": {
+		"_postman_id": "99d2bb13-63b4-4e08-8eac-4d9621871f49",
+		"name": "Organik.Integration.API Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24248423"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "abone",
+					"item": [
+						{
+							"name": "elk",
+							"item": [
+								{
+									"name": "listabone",
+									"item": [
+										{
+											"name": "/api/abone/elk/listabone",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"orderBy\": \"d.Id\",\n  \"order\": \"desc\",\n  \"paging\": true,\n  \"sortmode\": false,\n  \"sort\": [\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    },\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    }\n  ],\n  \"page\": 1,\n  \"nextPage\": 100,\n  \"pageCount\": 100,\n  \"serino\": \"\",\n  \"aboneno\": \"\",\n  \"tanim\": \"\",\n  \"durumid\": 1,\n  \"baslangicTarihi\": \"2025-01-01T00:00:00.000Z\",\n  \"bitisTarihi\": \"2025-01-01T00:00:00.000Z\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/abone/elk/listabone",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"abone",
+														"elk",
+														"listabone"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"orderBy\": \"d.Id\",\n  \"order\": \"desc\",\n  \"paging\": true,\n  \"sortmode\": false,\n  \"sort\": [\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    },\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    }\n  ],\n  \"page\": 1,\n  \"nextPage\": 100,\n  \"pageCount\": 100,\n  \"serino\": \"\",\n  \"aboneno\": \"\",\n  \"tanim\": \"\",\n  \"durumid\": 1,\n  \"baslangicTarihi\": \"2025-01-01T00:00:00.000Z\",\n  \"bitisTarihi\": \"2025-01-01T00:00:00.000Z\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/abone/elk/listabone",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"abone",
+																"elk",
+																"listabone"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "gaz",
+							"item": [
+								{
+									"name": "listgazabone",
+									"item": [
+										{
+											"name": "/api/abone/gaz/listgazabone",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"orderBy\": \"d.Id\",\n  \"order\": \"desc\",\n  \"paging\": true,\n  \"sortmode\": false,\n  \"sort\": [\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    },\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    }\n  ],\n  \"page\": 1,\n  \"nextPage\": 100,\n  \"pageCount\": 100,\n  \"serino\": \"\",\n  \"aboneno\": \"\",\n  \"tanim\": \"\",\n  \"durumid\": 1,\n  \"baslangicTarihi\": \"2025-01-01T00:00:00.000Z\",\n  \"bitisTarihi\": \"2025-01-01T00:00:00.000Z\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/abone/gaz/listgazabone",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"abone",
+														"gaz",
+														"listgazabone"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"orderBy\": \"d.Id\",\n  \"order\": \"desc\",\n  \"paging\": true,\n  \"sortmode\": false,\n  \"sort\": [\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    },\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    }\n  ],\n  \"page\": 1,\n  \"nextPage\": 100,\n  \"pageCount\": 100,\n  \"serino\": \"\",\n  \"aboneno\": \"\",\n  \"tanim\": \"\",\n  \"durumid\": 1,\n  \"baslangicTarihi\": \"2025-01-01T00:00:00.000Z\",\n  \"bitisTarihi\": \"2025-01-01T00:00:00.000Z\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/abone/gaz/listgazabone",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"abone",
+																"gaz",
+																"listgazabone"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "su",
+							"item": [
+								{
+									"name": "listsuabone",
+									"item": [
+										{
+											"name": "/api/abone/su/listsuabone",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"orderBy\": \"d.Id\",\n  \"order\": \"desc\",\n  \"paging\": true,\n  \"sortmode\": false,\n  \"sort\": [\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    },\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    }\n  ],\n  \"page\": 1,\n  \"nextPage\": 100,\n  \"pageCount\": 100,\n  \"serino\": \"\",\n  \"aboneno\": \"\",\n  \"tanim\": \"\",\n  \"durumid\": 1,\n  \"baslangicTarihi\": \"2025-01-01T00:00:00.000Z\",\n  \"bitisTarihi\": \"2025-01-01T00:00:00.000Z\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/abone/su/listsuabone",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"abone",
+														"su",
+														"listsuabone"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"orderBy\": \"d.Id\",\n  \"order\": \"desc\",\n  \"paging\": true,\n  \"sortmode\": false,\n  \"sort\": [\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    },\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    }\n  ],\n  \"page\": 1,\n  \"nextPage\": 100,\n  \"pageCount\": 100,\n  \"serino\": \"\",\n  \"aboneno\": \"\",\n  \"tanim\": \"\",\n  \"durumid\": 1,\n  \"baslangicTarihi\": \"2025-01-01T00:00:00.000Z\",\n  \"bitisTarihi\": \"2025-01-01T00:00:00.000Z\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/abone/su/listsuabone",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"abone",
+																"su",
+																"listsuabone"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "cihaz",
+					"item": [
+						{
+							"name": "elk",
+							"item": [
+								{
+									"name": "listelksayac",
+									"item": [
+										{
+											"name": "/api/cihaz/elk/listelksayac",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"orderBy\": \"d.Id\",\n  \"order\": \"desc\",\n  \"paging\": true,\n  \"sortmode\": false,\n  \"sort\": [\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    },\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    }\n  ],\n  \"page\": 1,\n  \"nextPage\": 100,\n  \"pageCount\": 100,\n  \"serino\": \"\",\n  \"aboneno\": \"\",\n  \"tanim\": \"\",\n  \"durumid\": 1,\n  \"baslangicTarihi\": \"2015-08-11T10:56:46.346Z\",\n  \"bitisTarihi\": \"1954-10-30T02:42:35.609Z\",\n  \"cihazserinolist\": [\n    \"1111111\",\n    \"2222222\"\n  ],\n  \"modemserino\": \"\",\n  \"etsokodlist\": [\n    \"1111111\",\n    \"2222222\"\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/cihaz/elk/listelksayac",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"cihaz",
+														"elk",
+														"listelksayac"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"orderBy\": \"d.Id\",\n  \"order\": \"desc\",\n  \"paging\": true,\n  \"sortmode\": false,\n  \"sort\": [\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    },\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    }\n  ],\n  \"page\": 1,\n  \"nextPage\": 100,\n  \"pageCount\": 100,\n  \"serino\": \"\",\n  \"aboneno\": \"\",\n  \"tanim\": \"\",\n  \"durumid\": 1,\n  \"baslangicTarihi\": \"2015-08-11T10:56:46.346Z\",\n  \"bitisTarihi\": \"1954-10-30T02:42:35.609Z\",\n  \"cihazserinolist\": [\n    \"1111111\",\n    \"2222222\"\n  ],\n  \"modemserino\": \"\",\n  \"etsokodlist\": [\n    \"1111111\",\n    \"2222222\"\n  ]\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/cihaz/elk/listelksayac",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"cihaz",
+																"elk",
+																"listelksayac"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "gaz",
+							"item": [
+								{
+									"name": "listgazsayac",
+									"item": [
+										{
+											"name": "/api/cihaz/gaz/listgazsayac",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"orderBy\": \"d.Id\",\n  \"order\": \"desc\",\n  \"paging\": true,\n  \"sortmode\": false,\n  \"sort\": [\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    },\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    }\n  ],\n  \"page\": 1,\n  \"nextPage\": 100,\n  \"pageCount\": 100,\n  \"serino\": \"\",\n  \"aboneno\": \"\",\n  \"tanim\": \"\",\n  \"durumid\": 1,\n  \"baslangicTarihi\": \"2015-08-11T10:56:46.346Z\",\n  \"bitisTarihi\": \"1954-10-30T02:42:35.609Z\",\n  \"cihazserinolist\": [\n    \"1111111\",\n    \"2222222\"\n  ],\n  \"modemserino\": \"\",\n  \"etsokodlist\": [\n    \"1111111\",\n    \"2222222\"\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/cihaz/gaz/listgazsayac",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"cihaz",
+														"gaz",
+														"listgazsayac"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"orderBy\": \"d.Id\",\n  \"order\": \"desc\",\n  \"paging\": true,\n  \"sortmode\": false,\n  \"sort\": [\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    },\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    }\n  ],\n  \"page\": 1,\n  \"nextPage\": 100,\n  \"pageCount\": 100,\n  \"serino\": \"\",\n  \"aboneno\": \"\",\n  \"tanim\": \"\",\n  \"durumid\": 1,\n  \"baslangicTarihi\": \"2015-08-11T10:56:46.346Z\",\n  \"bitisTarihi\": \"1954-10-30T02:42:35.609Z\",\n  \"cihazserinolist\": [\n    \"1111111\",\n    \"2222222\"\n  ],\n  \"modemserino\": \"\",\n  \"etsokodlist\": [\n    \"1111111\",\n    \"2222222\"\n  ]\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/cihaz/gaz/listgazsayac",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"cihaz",
+																"gaz",
+																"listgazsayac"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "su",
+							"item": [
+								{
+									"name": "listsusayac",
+									"item": [
+										{
+											"name": "/api/cihaz/su/listsusayac",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"orderBy\": \"d.Id\",\n  \"order\": \"desc\",\n  \"paging\": true,\n  \"sortmode\": false,\n  \"sort\": [\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    },\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    }\n  ],\n  \"page\": 1,\n  \"nextPage\": 100,\n  \"pageCount\": 100,\n  \"serino\": \"\",\n  \"aboneno\": \"\",\n  \"tanim\": \"\",\n  \"durumid\": 1,\n  \"baslangicTarihi\": \"2015-08-11T10:56:46.346Z\",\n  \"bitisTarihi\": \"1954-10-30T02:42:35.609Z\",\n  \"cihazserinolist\": [\n    \"1111111\",\n    \"2222222\"\n  ],\n  \"modemserino\": \"\",\n  \"etsokodlist\": [\n    \"1111111\",\n    \"2222222\"\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/cihaz/su/listsusayac",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"cihaz",
+														"su",
+														"listsusayac"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"orderBy\": \"d.Id\",\n  \"order\": \"desc\",\n  \"paging\": true,\n  \"sortmode\": false,\n  \"sort\": [\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    },\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    }\n  ],\n  \"page\": 1,\n  \"nextPage\": 100,\n  \"pageCount\": 100,\n  \"serino\": \"\",\n  \"aboneno\": \"\",\n  \"tanim\": \"\",\n  \"durumid\": 1,\n  \"baslangicTarihi\": \"2015-08-11T10:56:46.346Z\",\n  \"bitisTarihi\": \"1954-10-30T02:42:35.609Z\",\n  \"cihazserinolist\": [\n    \"1111111\",\n    \"2222222\"\n  ],\n  \"modemserino\": \"\",\n  \"etsokodlist\": [\n    \"1111111\",\n    \"2222222\"\n  ]\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/cihaz/su/listsusayac",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"cihaz",
+																"su",
+																"listsusayac"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "endeks",
+					"item": [
+						{
+							"name": "elk",
+							"item": [
+								{
+									"name": "listendeks",
+									"item": [
+										{
+											"name": "/api/endeks/elk/listendeks",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"orderBy\": \"d.Id\",\n  \"order\": \"desc\",\n  \"paging\": true,\n  \"sortmode\": false,\n  \"sort\": [\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    },\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    }\n  ],\n  \"page\": 1,\n  \"nextPage\": 100,\n  \"pageCount\": 100,\n  \"serino\": \"\",\n  \"aboneno\": \"\",\n  \"tanim\": \"\",\n  \"etsokod\": \"\",\n  \"durumid\": 1,\n  \"baslangicTarihi\": \"2025-01-01T00:00:00.000Z\",\n  \"bitisTarihi\": \"2025-01-01T00:00:00.000Z\",\n  \"cihazserinolist\": [\n    \"1111111\",\n    \"2222222\"\n  ],\n  \"resetgetir\": false,\n  \"carpanligetir\": false,\n  \"kaynak\": 0,\n  \"etsokodlist\": [\n    \"1111111\",\n    \"2222222\"\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/endeks/elk/listendeks",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"endeks",
+														"elk",
+														"listendeks"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"orderBy\": \"d.Id\",\n  \"order\": \"desc\",\n  \"paging\": true,\n  \"sortmode\": false,\n  \"sort\": [\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    },\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    }\n  ],\n  \"page\": 1,\n  \"nextPage\": 100,\n  \"pageCount\": 100,\n  \"serino\": \"\",\n  \"aboneno\": \"\",\n  \"tanim\": \"\",\n  \"etsokod\": \"\",\n  \"durumid\": 1,\n  \"baslangicTarihi\": \"2025-01-01T00:00:00.000Z\",\n  \"bitisTarihi\": \"2025-01-01T00:00:00.000Z\",\n  \"cihazserinolist\": [\n    \"1111111\",\n    \"2222222\"\n  ],\n  \"resetgetir\": false,\n  \"carpanligetir\": false,\n  \"kaynak\": 0,\n  \"etsokodlist\": [\n    \"1111111\",\n    \"2222222\"\n  ]\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/endeks/elk/listendeks",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"endeks",
+																"elk",
+																"listendeks"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "listyukprofili",
+									"item": [
+										{
+											"name": "/api/endeks/elk/listyukprofili",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"orderBy\": \"d.Id\",\n  \"order\": \"desc\",\n  \"paging\": true,\n  \"sortmode\": false,\n  \"sort\": [\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    },\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    }\n  ],\n  \"page\": 1,\n  \"nextPage\": 100,\n  \"pageCount\": 100,\n  \"serino\": \"\",\n  \"aboneno\": \"\",\n  \"tanim\": \"\",\n  \"etsokod\": \"\",\n  \"durumid\": 1,\n  \"baslangicTarihi\": \"2025-01-01T00:00:00.000Z\",\n  \"bitisTarihi\": \"2025-01-01T00:00:00.000Z\",\n  \"cihazserinolist\": [\n    \"1111111\",\n    \"2222222\"\n  ],\n  \"resetgetir\": false,\n  \"carpanligetir\": false,\n  \"kaynak\": 0,\n  \"etsokodlist\": [\n    \"1111111\",\n    \"2222222\"\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/endeks/elk/listyukprofili",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"endeks",
+														"elk",
+														"listyukprofili"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"orderBy\": \"d.Id\",\n  \"order\": \"desc\",\n  \"paging\": true,\n  \"sortmode\": false,\n  \"sort\": [\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    },\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    }\n  ],\n  \"page\": 1,\n  \"nextPage\": 100,\n  \"pageCount\": 100,\n  \"serino\": \"\",\n  \"aboneno\": \"\",\n  \"tanim\": \"\",\n  \"etsokod\": \"\",\n  \"durumid\": 1,\n  \"baslangicTarihi\": \"2025-01-01T00:00:00.000Z\",\n  \"bitisTarihi\": \"2025-01-01T00:00:00.000Z\",\n  \"cihazserinolist\": [\n    \"1111111\",\n    \"2222222\"\n  ],\n  \"resetgetir\": false,\n  \"carpanligetir\": false,\n  \"kaynak\": 0,\n  \"etsokodlist\": [\n    \"1111111\",\n    \"2222222\"\n  ]\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/endeks/elk/listyukprofili",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"endeks",
+																"elk",
+																"listyukprofili"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "gaz",
+							"item": [
+								{
+									"name": "listgazendeks",
+									"item": [
+										{
+											"name": "/api/endeks/gaz/listgazendeks",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"orderBy\": \"d.Id\",\n  \"order\": \"desc\",\n  \"paging\": true,\n  \"sortmode\": false,\n  \"sort\": [\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    },\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    }\n  ],\n  \"page\": 1,\n  \"nextPage\": 100,\n  \"pageCount\": 100,\n  \"serino\": \"\",\n  \"aboneno\": \"\",\n  \"tanim\": \"\",\n  \"etsokod\": \"\",\n  \"durumid\": 1,\n  \"baslangicTarihi\": \"2025-01-01T00:00:00.000Z\",\n  \"bitisTarihi\": \"2025-01-01T00:00:00.000Z\",\n  \"cihazserinolist\": [\n    \"1111111\",\n    \"2222222\"\n  ],\n  \"resetgetir\": false,\n  \"carpanligetir\": false,\n  \"kaynak\": 0,\n  \"etsokodlist\": [\n    \"1111111\",\n    \"2222222\"\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/endeks/gaz/listgazendeks",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"endeks",
+														"gaz",
+														"listgazendeks"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"orderBy\": \"d.Id\",\n  \"order\": \"desc\",\n  \"paging\": true,\n  \"sortmode\": false,\n  \"sort\": [\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    },\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    }\n  ],\n  \"page\": 1,\n  \"nextPage\": 100,\n  \"pageCount\": 100,\n  \"serino\": \"\",\n  \"aboneno\": \"\",\n  \"tanim\": \"\",\n  \"etsokod\": \"\",\n  \"durumid\": 1,\n  \"baslangicTarihi\": \"2025-01-01T00:00:00.000Z\",\n  \"bitisTarihi\": \"2025-01-01T00:00:00.000Z\",\n  \"cihazserinolist\": [\n    \"1111111\",\n    \"2222222\"\n  ],\n  \"resetgetir\": false,\n  \"carpanligetir\": false,\n  \"kaynak\": 0,\n  \"etsokodlist\": [\n    \"1111111\",\n    \"2222222\"\n  ]\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/endeks/gaz/listgazendeks",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"endeks",
+																"gaz",
+																"listgazendeks"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "su",
+							"item": [
+								{
+									"name": "listsuendeks",
+									"item": [
+										{
+											"name": "/api/endeks/su/listsuendeks",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"orderBy\": \"d.Id\",\n  \"order\": \"desc\",\n  \"paging\": true,\n  \"sortmode\": false,\n  \"sort\": [\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    },\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    }\n  ],\n  \"page\": 1,\n  \"nextPage\": 100,\n  \"pageCount\": 100,\n  \"serino\": \"\",\n  \"aboneno\": \"\",\n  \"tanim\": \"\",\n  \"etsokod\": \"\",\n  \"durumid\": 1,\n  \"baslangicTarihi\": \"2025-01-01T00:00:00.000Z\",\n  \"bitisTarihi\": \"2025-01-01T00:00:00.000Z\",\n  \"cihazserinolist\": [\n    \"1111111\",\n    \"2222222\"\n  ],\n  \"resetgetir\": false,\n  \"carpanligetir\": false,\n  \"kaynak\": 0,\n  \"etsokodlist\": [\n    \"1111111\",\n    \"2222222\"\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/endeks/su/listsuendeks",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"endeks",
+														"su",
+														"listsuendeks"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"orderBy\": \"d.Id\",\n  \"order\": \"desc\",\n  \"paging\": true,\n  \"sortmode\": false,\n  \"sort\": [\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    },\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    }\n  ],\n  \"page\": 1,\n  \"nextPage\": 100,\n  \"pageCount\": 100,\n  \"serino\": \"\",\n  \"aboneno\": \"\",\n  \"tanim\": \"\",\n  \"etsokod\": \"\",\n  \"durumid\": 1,\n  \"baslangicTarihi\": \"2025-01-01T00:00:00.000Z\",\n  \"bitisTarihi\": \"2025-01-01T00:00:00.000Z\",\n  \"cihazserinolist\": [\n    \"1111111\",\n    \"2222222\"\n  ],\n  \"resetgetir\": false,\n  \"carpanligetir\": false,\n  \"kaynak\": 0,\n  \"etsokodlist\": [\n    \"1111111\",\n    \"2222222\"\n  ]\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/endeks/su/listsuendeks",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"endeks",
+																"su",
+																"listsuendeks"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "fatura",
+					"item": [
+						{
+							"name": "elk",
+							"item": [
+								{
+									"name": "listelkfatura",
+									"item": [
+										{
+											"name": "/api/fatura/elk/listelkfatura",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"orderBy\": \"d.Id\",\n  \"order\": \"desc\",\n  \"paging\": true,\n  \"sortmode\": false,\n  \"sort\": [\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    },\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    }\n  ],\n  \"page\": 1,\n  \"nextPage\": 100,\n  \"pageCount\": 100,\n  \"faturano\": \"\",\n  \"efaturano\": \"\",\n  \"sayacserino\": \"\",\n  \"aboneno\": \"\",\n  \"tanim\": \"\",\n  \"durumid\": 2,\n  \"baslangicTarihi\": \"2025-01-01T00:00:00.000Z\",\n  \"bitisTarihi\": \"2025-01-01T00:00:00.000Z\",\n  \"faturaTarihi\": \"2025-01-01T00:00:00.000Z\",\n  \"bilgilerigetir\": true,\n  \"yil\": 0,\n  \"ay\": 0,\n  \"etsokod\": \"\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/fatura/elk/listelkfatura",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"fatura",
+														"elk",
+														"listelkfatura"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"orderBy\": \"d.Id\",\n  \"order\": \"desc\",\n  \"paging\": true,\n  \"sortmode\": false,\n  \"sort\": [\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    },\n    {\n      \"orderBy\": \"d.Id\",\n      \"order\": \"desc\"\n    }\n  ],\n  \"page\": 1,\n  \"nextPage\": 100,\n  \"pageCount\": 100,\n  \"faturano\": \"\",\n  \"efaturano\": \"\",\n  \"sayacserino\": \"\",\n  \"aboneno\": \"\",\n  \"tanim\": \"reprehenderit fugia\",\n  \"durumid\": 2,\n  \"baslangicTarihi\": \"2025-01-01T00:00:00.000Z\",\n  \"bitisTarihi\": \"2025-01-01T00:00:00.000Z\",\n  \"faturaTarihi\": \"2025-01-01T00:00:00.000Z\",\n  \"bilgilerigetir\": true,\n  \"yil\": 0,\n  \"ay\": 0,\n  \"etsokod\": \"\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/fatura/elk/listelkfatura",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"fatura",
+																"elk",
+																"listelkfatura"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "login",
+			"item": [
+				{
+					"name": "Kullanıcı giriş yapar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"kulAdi\": \"\",\n  \"parola\": \"\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"login"
+							]
+						},
+						"description": "Kullanıcı giriş bilgilerini alarak kimlik doğrulama yapar."
+					},
+					"response": [
+						{
+							"name": "Kullanıcı başarıyla giriş yaptı.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"kulAdi\": \"\",\n  \"parola\": \"\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Geçersiz kullanıcı adı veya parola.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"kulAdi\": \"\",\n  \"parola\": \"\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{bearerToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/"
+		}
+	]
+}
