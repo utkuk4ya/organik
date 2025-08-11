@@ -1,0 +1,33 @@
+.dashboard-container {
+  margin-top: 20px;  // Üstten boşluk
+  padding: 10px;     // İçerik dolgusu
+  background-color: rgb(245, 155, 39);
+  border-radius: 8px;  // Köşe yuvarlatma
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);  // Hafif gölge
+  position: relative;  // Pozisyonu ayarla
+}
+
+ion-card {
+  transition: margin-left 0.3s ease;  // Geçiş efekti
+}
+
+ion-card.expanded {
+  margin-left: 250px;  // Açık durumda genişlet
+}
+
+ion-card {
+  margin-left: 0;  // Kapalı durumda
+}
+
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;  // Genişlik
+  overflow: hidden;  // Taşma kontrolü
+  margin-top: 20px; // Üstten boşluk
+}
+
+.sub-items {
+  margin-left: 20px;  // Alt başlıklar için sol boşluk
+}

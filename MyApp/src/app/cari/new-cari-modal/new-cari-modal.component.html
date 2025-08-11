@@ -1,0 +1,127 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Yeni Cari</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">Vazgeç</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+
+    <!-- Ünvan -->
+    <ion-item>
+      <ion-label position="floating">Ünvan</ion-label>
+      <ion-input [(ngModel)]="newCari.unvan"></ion-input>
+    </ion-item>
+
+    <!-- Muh. Kod -->
+    <ion-item>
+      <ion-label position="floating">Muh. Kod</ion-label>
+      <ion-input [(ngModel)]="newCari.muhKod"></ion-input>
+    </ion-item>
+
+    <!-- Cari Türü -->
+    <ion-item>
+      <ion-label>Cari Türü</ion-label>
+      <ion-select [(ngModel)]="newCari.type">
+        <ion-select-option value="gerçek">Gerçek</ion-select-option>
+        <ion-select-option value="tüzel">Tüzel</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Cari Ad -->
+    <ion-item>
+      <ion-label position="floating">Cari Ad</ion-label>
+      <ion-input [(ngModel)]="newCari.cariAd"></ion-input>
+    </ion-item>
+
+    <!-- Soyad -->
+    <ion-item>
+      <ion-label position="floating">Soyad</ion-label>
+      <ion-input [(ngModel)]="newCari.soyad"></ion-input>
+    </ion-item>
+
+    <!-- TC Kimlik -->
+    <ion-item>
+      <ion-label position="floating">TC Kimlik</ion-label>
+      <ion-input [(ngModel)]="newCari.tckimlik"></ion-input>
+    </ion-item>
+
+    <!-- Vergi No -->
+    <ion-item>
+      <ion-label position="floating">Vergi No</ion-label>
+      <ion-input [(ngModel)]="newCari.vergino"></ion-input>
+    </ion-item>
+
+    <!-- Vergi Dairesi -->
+    <ion-item>
+      <ion-label position="floating">Vergi Dairesi</ion-label>
+      <ion-input [(ngModel)]="newCari.vergidaresi"></ion-input>
+    </ion-item>
+
+    <!-- Nace Kodu -->
+    <ion-item>
+      <ion-label position="floating">Nace Kodu</ion-label>
+      <ion-input [(ngModel)]="newCari.nacekodu"></ion-input>
+    </ion-item>
+
+    <!-- Adres -->
+    <ion-item>
+      <ion-label position="floating">Adres</ion-label>
+      <ion-input [(ngModel)]="newCari.adres"></ion-input>
+    </ion-item>
+
+    <!-- Fatura Adres -->
+    <ion-item>
+      <ion-label position="floating">Fatura Adres</ion-label>
+      <ion-input [(ngModel)]="newCari.faturaadres"></ion-input>
+    </ion-item>
+
+    <!-- Telefon -->
+    <ion-item>
+      <ion-label position="floating">Telefon</ion-label>
+      <ion-input [(ngModel)]="newCari.telefon"></ion-input>
+    </ion-item>
+
+    <!-- Gsm -->
+    <ion-item>
+      <ion-label position="floating">Gsm</ion-label>
+      <ion-input [(ngModel)]="newCari.gsm"></ion-input>
+    </ion-item>
+
+    <!-- Eposta -->
+    <ion-item>
+      <ion-label position="floating">Eposta</ion-label>
+      <ion-input [(ngModel)]="newCari.eposta"></ion-input>
+    </ion-item>
+
+    <!-- Tic. Sicil No -->
+    <ion-item>
+      <ion-label position="floating">Tic. Sicil No</ion-label>
+      <ion-input [(ngModel)]="newCari.ticSicilNo"></ion-input>
+    </ion-item>
+
+    <!-- Çalışan Sayısı -->
+    <ion-item>
+      <ion-label position="floating">Çalışan Sayısı</ion-label>
+      <ion-input type="number" [(ngModel)]="newCari.calisanSayisi"></ion-input>
+    </ion-item>
+
+    <!-- Durum -->
+    <ion-item>
+      <ion-label>Durum</ion-label>
+      <ion-select [(ngModel)]="newCari.durum">
+        <ion-select-option value="aktif">Aktif</ion-select-option>
+        <ion-select-option value="pasif">Pasif</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Kaydet Butonu -->
+    <ion-item lines="none">
+      <ion-button expand="full" (click)="saveCari()">Kaydet</ion-button>
+    </ion-item>
+    
+  </ion-list>
+</ion-content>

@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>List Page</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">Back</ion-button>
+    </ion-buttons>
+  
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Form Alanları -->
+  <ion-item>
+    <ion-label position="floating">Cari Ad</ion-label>
+    <ion-input [(ngModel)]="newCari.cariAd"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Muh. Kod</ion-label>
+    <ion-input [(ngModel)]="newCari.muhKod"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Ünvan</ion-label>
+    <ion-input [(ngModel)]="newCari.unvan"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Eposta</ion-label>
+    <ion-input [(ngModel)]="newCari.eposta"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Vergi No</ion-label>
+    <ion-input [(ngModel)]="newCari.vergiNo"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">TC Kimlik</ion-label>
+    <ion-input [(ngModel)]="newCari.tcKimlik"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Nace Kodu</ion-label>
+    <ion-input [(ngModel)]="newCari.naceKodu"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Tür</ion-label>
+    <ion-select [(ngModel)]="newCari.type">
+      <ion-select-option value="gerçek">Gerçek</ion-select-option>
+      <ion-select-option value="tüzel">Tüzel</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <!-- Butonlar -->
+  <ion-button expand="full" (click)="addCari()">Yeni</ion-button>
+  <ion-button expand="full" (click)="clearForm()">Temizle</ion-button>
+  <ion-button expand="full" (click)="refreshList()">Yenile</ion-button>
+  <ion-button expand="full" (click)="downloadList()">İndir</ion-button>
+
+  <!-- Liste -->
+  <ion-list>
+    <ion-item *ngFor="let cari of cariList">
+      {{ cari.cariAd }} - {{ cari.muhKod }} - {{ cari.unvan }} - {{ cari.eposta }} - {{ cari.vergiNo }} - {{ cari.tcKimlik }} - {{ cari.naceKodu }} - {{ cari.type }}
+    </ion-item>
+  </ion-list>
+</ion-content>

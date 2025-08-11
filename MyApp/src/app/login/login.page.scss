@@ -1,0 +1,74 @@
+ion-content {
+  --background: rgb(20, 60, 108); /* Arka plan rengini ayarla */
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* İçeriğin ortalanmasını sağlar */
+  padding: 16px; /* İçerik kenar boşluğu */
+}
+
+.login-logo-container {
+  background-color: #ffffff; /* Kutu arka plan rengini beyaz yap */
+  padding: 16px; /* İçerik kenar boşluğu */
+  border-radius: 8px; /* Köşeleri yuvarlat */
+  margin-bottom: 25px; /* Logo ile form arasına boşluk bırak */
+  display: flex; /* Logo'nun ortalanmasını sağla */
+  justify-content: center; /* Logo'yu yatayda ortala */
+  align-items: center; /* Logo'yu dikeyde ortala */
+}
+
+.login-logo {
+  max-width: 200px; /* Logo boyutunu ayarla */
+  display: block; /* Logo merkezlenir */
+  margin: auto; /* Ortalamak için */
+}
+
+ion-card {
+  width: 100%;
+  max-width: 400px; /* Maksimum genişlik */
+  background-color: rgb(245, 155, 39); /* Kutu arka plan rengini ayarla */
+  padding: 14px; /* İçerik kenar boşluğu */
+  border-radius: 12px; /* Köşeleri yuvarlat */
+}
+
+ion-card-header {
+  margin-bottom: 16px;
+}
+
+ion-card-title {
+  font-size: 1.5rem; /* Başlık boyutunu ayarla */
+  font-weight: bold;
+  text-align: center; /* Başlığı ortala */
+}
+
+ion-item {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+ion-label {
+  color: #ffffff; /* Label rengini beyaz yap */
+}
+
+ion-button {
+  margin-top: 16px;
+  --background: rgb(20, 60, 108); /* Butonun arka plan rengini ayarla */
+  --color: #ffffff; /* Buton üzerindeki yazı rengini ayarla */
+  --border-radius: 8px; /* Buton köşe yuvarlatma */
+}
+
+.password-eye-container {
+  position: absolute;
+  top: 50%;
+  right: 0; /* Move the icon to the extreme right side */
+  transform: translateY(-50%);
+  cursor: pointer; /* Add a pointer cursor to indicate it's clickable */
+}
+
+.password-eye-icon {
+  font-size: 26px; /* Increase the icon size to 24px */
+}
