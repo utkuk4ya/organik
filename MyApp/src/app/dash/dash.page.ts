@@ -11,7 +11,8 @@ export class DashPage implements OnInit {
   isGeneralExpanded: boolean = false;
   isFenIsleriExpanded: boolean = false;
   isFaturaExpanded: boolean = false;
-  isDashboardExpanded: boolean = true;  // Toggle için eklenen özellik
+  isDashboardExpanded: boolean = true;
+  isAbonelerExpanded: boolean = false;  // Toggle için eklenen özellik
 
   totalCustomers: number = 22;
   totalSubscriptions: number = 0;
@@ -25,7 +26,7 @@ export class DashPage implements OnInit {
 
   isDashboardClosed: boolean = false;  // Proper type
 
-  constructor(private router: Router, private alertController: AlertController) {}
+  constructor(private router: Router, private alertController: AlertController) { }
 
   ngOnInit() {
     this.updateChartData();
@@ -53,6 +54,10 @@ export class DashPage implements OnInit {
 
   toggleDashboard() {
     this.isDashboardExpanded = !this.isDashboardExpanded;  // Toggle state değişimi
+  }
+
+  toggleAboneler() {
+    this.isAbonelerExpanded = !this.isAbonelerExpanded;
   }
 
   async showLisanssizUretimAlert() {

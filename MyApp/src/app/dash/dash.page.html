@@ -43,7 +43,7 @@
             </ion-item>
             <ion-item button (click)="navigateToDashboard()">
               <ion-icon slot="start" name="code-outline"></ion-icon>
-              <ion-label>Muhasbe Entegrasyon Kod İşlemleri</ion-label>
+              <ion-label>Muhasebe Entegrasyon Kod İşlemleri</ion-label>
             </ion-item>
             <ion-item button (click)="navigateToDashboard()">
               <ion-icon slot="start" name="home-outline"></ion-icon>
@@ -71,7 +71,8 @@
           <ion-item button (click)="toggleFenIsleri()">
             <ion-icon slot="start" name="business-outline"></ion-icon>
             <ion-label>Fen İşleri</ion-label>
-            <ion-icon slot="end" [name]="isFenIsleriExpanded ? 'chevron-up-outline' : 'chevron-down-outline'"></ion-icon>
+            <ion-icon slot="end"
+              [name]="isFenIsleriExpanded ? 'chevron-up-outline' : 'chevron-down-outline'"></ion-icon>
           </ion-item>
 
           <!-- Fen İşleri Alt Başlıklar -->
@@ -80,10 +81,31 @@
               <ion-icon slot="start" name="home-outline"></ion-icon>
               <ion-label>Ana Sayfa</ion-label>
             </ion-item>
-            <ion-item button (click)="navigateToDashboard()">
+
+            <ion-item button (click)="toggleAboneler()">
               <ion-icon slot="start" name="people-outline"></ion-icon>
               <ion-label>Aboneler ve Cariler</ion-label>
             </ion-item>
+
+            <div *ngIf="isAbonelerExpanded" class="sub-items">
+              <ion-item button (click)="navigateToDashboard()">
+                <ion-icon slot="start" name="flash-outline"></ion-icon>
+                <ion-label>Elektrik</ion-label>
+              </ion-item>
+
+              <ion-item button (click)="navigateToDashboard()">
+                <ion-icon slot="start" name="water-outline"></ion-icon>
+                <ion-label>Su</ion-label>
+              </ion-item>
+
+              <ion-item button (click)="navigateToDashboard()">
+                <ion-icon slot="start" name="flame-outline"></ion-icon>
+                <ion-label>Gaz</ion-label>
+              </ion-item>
+            </div>
+
+
+
             <ion-item button (click)="navigateToDashboard()">
               <ion-icon slot="start" name="construct-outline"></ion-icon>
               <ion-label>İş Makinesi Kullanım İşleri</ion-label>
@@ -117,21 +139,14 @@
             <ion-label>Lisanssız Üretim Başvur</ion-label>
           </ion-item>
         </ion-list>
-        <ion-text color="secondary" style="text-align: center;">Version 2407 - 31/07/2024</ion-text>
+        <ion-text color="secondary" style="text-align: center;">Version 24-07 - 31/07/2024</ion-text>
       </ion-card-content>
     </ion-card>
 
     <!-- Grafik Bileşeni -->
     <div class="chart-container">
-      <ngx-charts-bar-vertical
-        [results]="chartData"
-        [xAxis]="true"
-        [yAxis]="true"
-        [showXAxisLabel]="true"
-        [xAxisLabel]="'Kategori'"
-        [showYAxisLabel]="true"
-        [yAxisLabel]="'Sayı'"
-        [view]="[chartWidth, chartHeight]">
+      <ngx-charts-bar-vertical [results]="chartData" [xAxis]="true" [yAxis]="true" [showXAxisLabel]="true"
+        [xAxisLabel]="'Kategori'" [showYAxisLabel]="true" [yAxisLabel]="'Sayı'" [view]="[chartWidth, chartHeight]">
       </ngx-charts-bar-vertical>
     </div>
   </div>
