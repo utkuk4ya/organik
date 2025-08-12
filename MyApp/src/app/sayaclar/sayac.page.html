@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dash"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Elektrik Sayaçları</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-spinner *ngIf="isLoading" class="ion-margin"></ion-spinner>
+
+  <ng-container *ngIf="!isLoading && sayaclar.length; else empty">
+    <ion-list inset="true">
+      <ion-item *ngFor="let s of sayaclar">
+        <ion-label>
+          <h5>{{ s.cariad || '-' }}</h5>
+          <h6>Abone No: {{ s.aboneno || '-' }}</h6>
+          <p>Seri No: {{ s.serino || '-' }}</p>
+          <p>Tanım: {{ s.tanim || '-' }}</p>
+          <p>Durum: {{ s.durumad || '-' }}</p>
+          <p>Modem Seri No: {{ s.modemserino || '-' }}</p>
+          <p>ETSO Kod: {{ s.etsokod || '-' }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ng-container>
+
+  <ng-template #empty>
+    <div class="empty">
+      <ion-icon name="podium-outline" size="large"></ion-icon>
+      <h2>Liste boş</h2>
+    </div>
+  </ng-template>
+</ion-content>

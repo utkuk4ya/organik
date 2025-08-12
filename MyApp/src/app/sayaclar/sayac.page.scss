@@ -1,0 +1,11 @@
+.empty {
+  height: 60vh;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  opacity: 0.7;
+
+  ion-icon {
+    margin-bottom: 8px;
+  }
+}
