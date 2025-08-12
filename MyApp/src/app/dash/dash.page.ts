@@ -37,7 +37,8 @@ export class DashPage implements OnInit {
   }
 
   navigateToDashboard() {
-    this.router.navigate(['/dash']);
+    this.router.navigate(["/dash"]); 
+
   }
 
   toggleGeneral() {

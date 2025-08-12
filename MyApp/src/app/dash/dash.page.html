@@ -85,6 +85,7 @@
             <ion-item button (click)="toggleAboneler()">
               <ion-icon slot="start" name="people-outline"></ion-icon>
               <ion-label>Aboneler ve Cariler</ion-label>
+              <ion-icon slot="end" [name]="isAbonelerExpanded ? 'chevron-up-outline' : 'chevron-down-outline'"></ion-icon>
             </ion-item>
 
             <div *ngIf="isAbonelerExpanded" class="sub-items">
