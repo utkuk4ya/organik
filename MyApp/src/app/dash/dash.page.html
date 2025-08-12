@@ -89,17 +89,17 @@
             </ion-item>
 
             <div *ngIf="isAbonelerExpanded" class="sub-items">
-              <ion-item button (click)="navigateToDashboard()">
+              <ion-item [routerLink]="['/aboneler/elk']">
                 <ion-icon slot="start" name="flash-outline"></ion-icon>
                 <ion-label>Elektrik</ion-label>
               </ion-item>
 
-              <ion-item button (click)="navigateToDashboard()">
+              <ion-item [routerLink]="['/aboneler/su']">
                 <ion-icon slot="start" name="water-outline"></ion-icon>
                 <ion-label>Su</ion-label>
               </ion-item>
 
-              <ion-item button (click)="navigateToDashboard()">
+              <ion-item [routerLink]="['/aboneler/gaz']">
                 <ion-icon slot="start" name="flame-outline"></ion-icon>
                 <ion-label>Gaz</ion-label>
               </ion-item>

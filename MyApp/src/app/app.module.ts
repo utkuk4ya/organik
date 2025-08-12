@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { FormsModule } from '@angular/forms';
 import {NewCariModalModule} from './cari/new-cari-modal/new-cari-modal.module';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -15,6 +16,7 @@ import {NewCariModalModule} from './cari/new-cari-modal/new-cari-modal.module';
     IonicModule.forRoot(),
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
     FormsModule,
     NewCariModalModule
     

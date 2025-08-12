@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dash"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Elektrik Aboneleri</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-spinner *ngIf="isLoading" class="ion-margin"></ion-spinner>
+
+  <ng-container *ngIf="!isLoading && aboneler.length; else empty">
+    <ion-list inset="true">
+      <ion-item *ngFor="let a of aboneler">
+        <ion-label>
+          <h2>{{ a.ad }}</h2>
+          <p>Abone No: {{ a.aboneno }}</p>
+          <p>Seri No: {{ a.serino }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ng-container>
+
+  <ng-template #empty>
+    <div class="empty">
+      <ion-icon name="flash-outline" size="large"></ion-icon>
+      <h2>Henüz veri yok</h2>
+    </div>
+  </ng-template>
+</ion-content>
