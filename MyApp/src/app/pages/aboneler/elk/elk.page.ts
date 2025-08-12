@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbonelerService, ElektrikAbone } from 'src/app/services/aboneler.service';
+import { AbonelerService, Abone } from 'src/app/services/aboneler.service';
 
 @Component({
   selector: 'app-elk',
@@ -7,10 +7,10 @@ import { AbonelerService, ElektrikAbone } from 'src/app/services/aboneler.servic
   styleUrls: ['./elk.page.scss'],
 })
 export class ElkPage implements OnInit {
-  aboneler: ElektrikAbone[] = [];
+  aboneler: Abone[] = [];
   isLoading = false;
 
-  constructor(private abonelerService: AbonelerService) {}
+  constructor(private abonelerService: AbonelerService) { }
 
   ngOnInit() {
     this.load();
@@ -18,7 +18,7 @@ export class ElkPage implements OnInit {
 
   load(ev?: any) {
     this.isLoading = true;
-    this.abonelerService.getElektrikAboneleri().subscribe({
+    this.abonelerService.getSubscribers('elk').subscribe({
       next: data => {
         this.aboneler = data;
         this.isLoading = false;

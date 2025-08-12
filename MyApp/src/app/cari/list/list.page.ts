@@ -67,6 +67,6 @@ export class ListPage {
   }
 
   goBack() {
-    this.router.navigate(['../dash/dash.page.html']); // Replace '/dashboard' with the actual route of your Dashboard page
+    this.router.navigate(['dash']); // Replace '/dashboard' with the actual route of your Dashboard page
   }
 }

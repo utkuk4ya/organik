@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="goBack()">
+                <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>{{ getTypeLabel() }} Aboneleri</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list *ngIf="subscribers.length > 0; else noData">
+        <ion-item *ngFor="let subscriber of subscribers">
+            <ion-label>
+                <h2>{{ subscriber.aboneliktipad }}</h2>
+                <p>{{ subscriber.tanim }}</p> <!-- Örnek başka bilgi -->
+            </ion-label>
+        </ion-item>
+    </ion-list>
+
+    <ng-template #noData>
+        <ion-item>
+            <ion-label>Gösterilecek abone bulunamadı.</ion-label>
+        </ion-item>
+    </ng-template>
+</ion-content>

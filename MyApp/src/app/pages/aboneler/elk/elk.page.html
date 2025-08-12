@@ -18,18 +18,21 @@
     <ion-list inset="true">
       <ion-item *ngFor="let a of aboneler">
         <ion-label>
-          <h2>{{ a.ad }}</h2>
-          <p>Abone No: {{ a.aboneno }}</p>
-          <p>Seri No: {{ a.serino }}</p>
+          <h5>{{ a.cariad }}</h5>
+          <h6>Abone No: {{ a.aboneno }}</h6>
+          <p>Abonelik Türü: {{ a.aboneliktipad }}</p>
+          <p>Fatura Türü: {{ a.faturatipad }}</p>
+          <p>Abonelik Durumu: {{ a.durumad }}</p>
+    
         </ion-label>
       </ion-item>
     </ion-list>
   </ng-container>
 
-  <ng-template #empty>
+<ng-template #empty>
     <div class="empty">
       <ion-icon name="flash-outline" size="large"></ion-icon>
-      <h2>Henüz veri yok</h2>
+      <h2></h2>
     </div>
   </ng-template>
 </ion-content>

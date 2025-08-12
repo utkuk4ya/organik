@@ -1,13 +1,38 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>su</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dash"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Su Aboneleri</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">su</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-spinner *ngIf="isLoading" class="ion-margin"></ion-spinner>
+
+  <ng-container *ngIf="!isLoading && aboneler.length; else empty">
+    <ion-list inset="true">
+      <ion-item *ngFor="let a of aboneler">
+        <ion-label>
+          <h5>{{ a.cariad }}</h5>
+          <h6>Abone No: {{ a.aboneno }}</h6>
+          <p>Abonelik Türü: {{ a.aboneliktipad }}</p>
+          <p>Fatura Türü: {{ a.faturatipad }}</p>
+          <p>Abonelik Durumu: {{ a.durumad }}</p>
+    
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ng-container>
+
+<ng-template #empty>
+    <div class="empty">
+      <ion-icon name="water-outline" size="large"></ion-icon>
+      <h2></h2>
+    </div>
+  </ng-template>
 </ion-content>
