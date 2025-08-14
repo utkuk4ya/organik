@@ -9,6 +9,7 @@ export interface Sayac {
   serino?: string;
   tanim?: string;
   durumad?: string;
+
   // sayaç tarafına özgü alanlar (API'ne göre düzenleyebilirsin)
   modemserino?: string;
   etsokod?: string;
@@ -34,6 +35,7 @@ export interface SayacBody {
 @Injectable({ providedIn: 'root' })
 export class SayacService {
   private BASE_URL = 'http://13.69.136.67:1091';
+  private BEARER_TOKEN = 'eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNyc2Etc2hhMjU2IiwidHlwIjoiSldUIn0.eyJqdGkiOiIyZWFhZjFlMy0wYjQxLTQxNDEtODNlNC05MzU1YzEwYmNlM2QiLCJLdWxBZGkiOiJ0ZXN0IiwibmFtZSI6InRlc3QiLCJLdWxJZCI6IjQiLCJLdXJ1bUlkIjoiMSIsInR5cCI6IjIiLCJJa2lmYWt0b3JsdWRvZ3J1bGFtYSI6IjEiLCJDYXJpSWQiOiIwIiwiUm9sZXMiOlsiT1JHQU5JS19FTlRFR1JBU1lPTiIsIk9SR0FOSUtfRU5URUdSQVNZT05fQUJPTkUiLCJPUkdBTklLX0VOVEVHUkFTWU9OX0VOREVLUyIsIk9SR0FOSUtfRU5URUdSQVNZT05fQ0lIQVoiLCJPUkdBTklLX0VOVEVHUkFTWU9OX0ZBVFVSQSJdLCJuYmYiOjE3NTUxNTAzOTIsImV4cCI6MTc1NTIzNjc5MiwiaXNzIjoib3JnYW5payIsImF1ZCI6Im9yZ2FuaWsifQ.COeX2r0CBEHriRYxak6Rkwmuhy507Pfu54RVZgEj71wDfVyHF9IfNwW0CXVfMEuYyuSRgAur0tmJwxhJLOY-MSAaxcfmhFNJbFJowLBYW8hOVSsOPbyld8zbqvpflYEIYHw0oA4fdsjOocJSXhXe5YcLP9-9uWgFScd_hr8ghjUn6_8HM4_LEYOcZvz01LoO0OnVewDIWwcrAalZnP3myyaeKAsN7wi6P42fjRUpqmlF9n7dQqYODmmSJuugKXkjvHg5MNx6vHjILUDLjC3CnTfqiNqECRpPZNEdll832KwUkuuL8pvSNJMjQpxzIJ7ymm0WD292BHR_UYO6UxyT4Q';
 
   // Verdiğin body’nin birebir default hali
   private readonly DEFAULT_BODY: SayacBody = {
@@ -56,7 +58,7 @@ export class SayacService {
     etsokodlist: ['1111111', '2222222']
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   /**
    * Elektrik sayaç listesini çeker.
@@ -66,10 +68,11 @@ export class SayacService {
    * this.sayacService.getElkSayac({ aboneno: '123', etsokodlist: ['9999999'] })
    */
   getElkSayac(bodyOverrides: Partial<SayacBody> = {}): Observable<Sayac[]> {
-    const dataPath = `/api/cihaz//listsayac`;
+    const dataPath = `/api/cihaz/elk/listelksayac`;
 
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.BEARER_TOKEN}`
     });
 
     // default body + override edilen alanlar
@@ -82,7 +85,5 @@ export class SayacService {
     return this.http.post<any>(this.BASE_URL + dataPath, body, { headers }).pipe(
       map(res => Array.isArray(res?.value) ? res.value as Sayac[] : [])
     );
-
-    
   }
 }

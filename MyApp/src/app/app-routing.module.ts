@@ -6,7 +6,7 @@ const routes: Routes = [
   { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
   { path: 'dash',  loadChildren: () => import('./dash/dash.module').then(m => m.DashModule) },
   { path: 'cari',  loadChildren: () => import('./cari/cari.module').then(m => m.CariPageModule) },
-  { path: 'sayac', loadChildren: () => import('./sayaclar/sayac.module').then(m => m.SayacPageModule) },
+  { path: 'sayaclar', loadChildren: () => import('./sayaclar/sayac.module').then(m => m.SayacPageModule) },
 
   // NEW
   {
