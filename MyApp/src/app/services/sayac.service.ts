@@ -1,89 +1,101 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { Observable, map, catchError, of, switchMap } from 'rxjs';
 
 export interface Sayac {
   id: number;
   cariad?: string;
   aboneno?: string;
   serino?: string;
-  tanim?: string;
-  durumad?: string;
-
-  // sayaç tarafına özgü alanlar (API'ne göre düzenleyebilirsin)
   modemserino?: string;
   etsokod?: string;
-}
-
-export interface SayacBody {
-  orderBy: string;
-  order: 'asc' | 'desc';
-  paging: boolean;
-  sortmode: boolean;
-  sort: Array<{ orderBy: string; order: 'asc' | 'desc' }>;
-  page: number;
-  nextPage: number;
-  pageCount: number;
-  serino: string;
-  aboneno: string;
-  tanim: string;
-  durumid: number;
-  modemserino: string;
-  etsokodlist: string[];
+  tanim?: string;
+  durumad?: string;
+  [key: string]: any;
 }
 
 @Injectable({ providedIn: 'root' })
 export class SayacService {
   private BASE_URL = 'http://13.69.136.67:1091';
-  private BEARER_TOKEN = 'eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNyc2Etc2hhMjU2IiwidHlwIjoiSldUIn0.eyJqdGkiOiIyZWFhZjFlMy0wYjQxLTQxNDEtODNlNC05MzU1YzEwYmNlM2QiLCJLdWxBZGkiOiJ0ZXN0IiwibmFtZSI6InRlc3QiLCJLdWxJZCI6IjQiLCJLdXJ1bUlkIjoiMSIsInR5cCI6IjIiLCJJa2lmYWt0b3JsdWRvZ3J1bGFtYSI6IjEiLCJDYXJpSWQiOiIwIiwiUm9sZXMiOlsiT1JHQU5JS19FTlRFR1JBU1lPTiIsIk9SR0FOSUtfRU5URUdSQVNZT05fQUJPTkUiLCJPUkdBTklLX0VOVEVHUkFTWU9OX0VOREVLUyIsIk9SR0FOSUtfRU5URUdSQVNZT05fQ0lIQVoiLCJPUkdBTklLX0VOVEVHUkFTWU9OX0ZBVFVSQSJdLCJuYmYiOjE3NTUxNTAzOTIsImV4cCI6MTc1NTIzNjc5MiwiaXNzIjoib3JnYW5payIsImF1ZCI6Im9yZ2FuaWsifQ.COeX2r0CBEHriRYxak6Rkwmuhy507Pfu54RVZgEj71wDfVyHF9IfNwW0CXVfMEuYyuSRgAur0tmJwxhJLOY-MSAaxcfmhFNJbFJowLBYW8hOVSsOPbyld8zbqvpflYEIYHw0oA4fdsjOocJSXhXe5YcLP9-9uWgFScd_hr8ghjUn6_8HM4_LEYOcZvz01LoO0OnVewDIWwcrAalZnP3myyaeKAsN7wi6P42fjRUpqmlF9n7dQqYODmmSJuugKXkjvHg5MNx6vHjILUDLjC3CnTfqiNqECRpPZNEdll832KwUkuuL8pvSNJMjQpxzIJ7ymm0WD292BHR_UYO6UxyT4Q';
+  private BEARER_TOKEN = 'eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNyc2Etc2hhMjU2IiwidHlwIjoiSldUIn0.eyJqdGkiOiI4ZTU4Mzg4NS02YzQ2LTQ0ZWMtOTY3ZS1iNzg0MDhkY2UzZDUiLCJLdWxBZGkiOiJ0ZXN0IiwibmFtZSI6InRlc3QiLCJLdWxJZCI6IjQiLCJLdXJ1bUlkIjoiMSIsInR5cCI6IjIiLCJJa2lmYWt0b3JsdWRvZ3J1bGFtYSI6IjEiLCJDYXJpSWQiOiIwIiwiUm9sZXMiOlsiT1JHQU5JS19FTlRFR1JBU1lPTiIsIk9SR0FOSUtfRU5URUdSQVNZT05fQUJPTkUiLCJPUkdBTklLX0VOVEVHUkFTWU9OX0VOREVLUyIsIk9SR0FOSUtfRU5URUdSQVNZT05fQ0lIQVoiLCJPUkdBTklLX0VOVEVHUkFTWU9OX0ZBVFVSQSJdLCJuYmYiOjE3NTUxNTc1OTUsImV4cCI6MTc1NTI0Mzk5NSwiaXNzIjoib3JnYW5payIsImF1ZCI6Im9yZ2FuaWsifQ.zd5OzXADFvaL2PwasXdE38JN-rtoDlOW_9yNcXi5TMIC0aaAn6h1QFhdJ7InNLA7nS8-vj4Vz71ipXeztXalc2npbb5VK-jRVFLYnzDu0fHX74auNJ2iYCR3ICunzbV8TIg2xRCUGMkHVVfgFli_HBQ5lheRDM7OPtQt6PDNdtupHvWlyV2mjqWnhseteOQOF6ulvDcDNfypYTUzKBqpAUlCGJfVUarQc_Rtbal1bHnmZrS7dvrU6pG35xwWobxmcwoOQLj17dJktEoezihpvMBWd3fmZwhDHIbXXCC7KOsp5EECAFKG2i5UhtIH66Nfk6ISdBiJ5CxisqjQc7v1Ow';
 
-  // Verdiğin body’nin birebir default hali
-  private readonly DEFAULT_BODY: SayacBody = {
+  private readonly DEFAULT_BODY = {
     orderBy: 'd.Id',
     order: 'desc',
     paging: true,
     sortmode: false,
-    sort: [
-      { orderBy: 'd.Id', order: 'desc' },
-      { orderBy: 'd.Id', order: 'desc' }
-    ],
+    sort: [{ orderBy: 'd.Id', order: 'desc' }],
     page: 1,
     nextPage: 100,
     pageCount: 100,
     serino: '',
     aboneno: '',
     tanim: '',
-    durumid: 1,
-    modemserino: '',
-    etsokodlist: ['1111111', '2222222']
+    durumid: 1
   };
+
+  private headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${this.BEARER_TOKEN}`
+  });
 
   constructor(private http: HttpClient) {}
 
-  /**
-   * Elektrik sayaç listesini çeker.
-   * @param bodyOverrides DEFAULT_BODY üzerinde değiştirmek istediğin alanlar
-   *
-   * Örnek:
-   * this.sayacService.getElkSayac({ aboneno: '123', etsokodlist: ['9999999'] })
-   */
-  getElkSayac(bodyOverrides: Partial<SayacBody> = {}): Observable<Sayac[]> {
-    const dataPath = `/api/cihaz/elk/listelksayac`;
+  /** Önce SU altında dener, 404 olursa ELK altına düşer */
+  getMeters(
+    type: 'elk' | 'su' | 'gaz',
+    overrides: Partial<typeof this.DEFAULT_BODY> = {},
+    useGet = false // true yaparsan GET ile dener
+  ): Observable<Sayac[]> {
+    const body = { ...this.DEFAULT_BODY, ...overrides };
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.BEARER_TOKEN}`
-    });
-
-    // default body + override edilen alanlar
-    const body: SayacBody = {
-      ...this.DEFAULT_BODY,
-      ...bodyOverrides,
-      // nested array/object varsa gerekirse daha ince birleştirme yapılabilir
+    const SU_PATHS: Record<'elk' | 'su' | 'gaz', string> = {
+      elk: '/api/cihaz/su/listelksayac',
+      su:  '/api/cihaz/su/listsusayac',
+      gaz: '/api/cihaz/su/listgazsayac',
     };
 
-    return this.http.post<any>(this.BASE_URL + dataPath, body, { headers }).pipe(
-      map(res => Array.isArray(res?.value) ? res.value as Sayac[] : [])
+    const ELK_PATHS: Record<'elk' | 'su' | 'gaz', string> = {
+      elk: '/api/cihaz/elk/listelksayac', // <— Fallback
+      su:  '/api/cihaz/su/listsusayac',
+      gaz: '/api/cihaz/gaz/listgazsayac',
+    };
+
+    const firstUrl  = this.BASE_URL + SU_PATHS[type];
+    const secondUrl = this.BASE_URL + ELK_PATHS[type];
+
+    console.log('[SayacService] trying:', firstUrl);
+
+    const request = (url: string) =>
+      useGet
+        ? this.http.get<any>(url, { headers: this.headers })
+        : this.http.post<any>(url, body, { headers: this.headers });
+
+    return request(firstUrl).pipe(
+      catchError((err: HttpErrorResponse) => {
+        // sadece 404 ise fallback yap
+        if (err.status === 404) {
+          console.warn('[SayacService] 404, fallback to:', secondUrl);
+          return request(secondUrl);
+        }
+        // başka hata ise aynen fırlat
+        throw err;
+      }),
+      map(res => (Array.isArray(res?.value) ? (res.value as Sayac[]) : [])),
+      catchError(err => {
+        console.error('Sayaç listesi alınamadı:', err);
+        return of([]);
+      })
     );
+  }
+
+  getElkSayac(overrides: Partial<typeof this.DEFAULT_BODY> = {}, useGet = false) {
+    return this.getMeters('elk', overrides, useGet);
+  }
+  getSuSayac(overrides: Partial<typeof this.DEFAULT_BODY> = {}, useGet = false) {
+    return this.getMeters('su', overrides, useGet);
+  }
+  getGazSayac(overrides: Partial<typeof this.DEFAULT_BODY> = {}, useGet = false) {
+    return this.getMeters('gaz', overrides, useGet);
   }
 }

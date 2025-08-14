@@ -3,11 +3,27 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/dash"></ion-back-button>
     </ion-buttons>
-    <ion-title>Elektrik Sayaçları</ion-title>
+    <ion-title>Sayaçlar</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <!-- Tip seçici -->
+  <div class="ion-padding">
+    <!-- Sadece event'i gönderiyoruz; tip dönüşümü TS tarafında -->
+    <ion-segment [value]="selectedType" (ionChange)="onTypeChange($event)">
+      <ion-segment-button value="elk">
+        <ion-label>Elektrik</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="su">
+        <ion-label>Su</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="gaz">
+        <ion-label>Gaz</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
@@ -31,7 +47,7 @@
   </ng-container>
 
   <ng-template #empty>
-    <div class="empty">
+    <div class="empty ion-text-center ion-padding">
       <ion-icon name="podium-outline" size="large"></ion-icon>
       <h2>Liste boş</h2>
     </div>
