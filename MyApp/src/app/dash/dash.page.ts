@@ -33,7 +33,6 @@ export class DashPage implements OnInit {
       expanded: false,
       children: [
         { label: 'Aboneler ve Cariler', icon: 'people-outline', link: '/aboneler/elk' },
-        { label: 'Sayaçlar', icon: 'speedometer-outline', link: '../sayaclar' },
         {
           label: 'Fatura',
           icon: 'document-outline',
@@ -53,7 +52,6 @@ export class DashPage implements OnInit {
       expanded: false,
       children: [
         { label: 'Aboneler ve Cariler', icon: 'people-outline', link: '/aboneler/su' },
-        { label: 'Sayaçlar', icon: 'speedometer-outline', link: '/sayaclar' },
         {
           label: 'Fatura',
           icon: 'document-outline',
@@ -74,7 +72,6 @@ export class DashPage implements OnInit {
       expanded: false,
       children: [
         { label: 'Aboneler ve Cariler', icon: 'people-outline', link: '/aboneler/gaz' },
-        { label: 'Sayaçlar', icon: 'speedometer-outline', link: '/sayaclar' },
         {
           label: 'Fatura',
           icon: 'document-outline',
