@@ -1,87 +1,17 @@
-/*import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
-
-export interface Abone {
-  id: number;
-  cariad?: string;
-  aboneno?: string;
-  serino?: string;
-  tanim?: string; // <-- eklendi
-  aboneliktipad: string;
-  faturatipad: string;
-  durumad?: string;
-}
-
-@Injectable({ providedIn: 'root' })
-export class AbonelerService {
-
-  private BASE_URL = 'http://13.69.136.67:1091';
-
-  // mjs dosyandaki bearer token — test amaçlı burada duruyor
-  // gerçek sistemde login API'sinden dinamik alınmalı
-  private BEARER_TOKEN = 'eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNyc2Etc2hhMjU2IiwidHlwIjoiSldUIn0.eyJqdGkiOiI3MjkxZTlhYS0wYjVjLTRmNjMtOWI4NC00YmNjNWRkMmExZDUiLCJLdWxBZGkiOiJ0ZXN0IiwibmFtZSI6InRlc3QiLCJLdWxJZCI6IjQiLCJLdXJ1bUlkIjoiMSIsInR5cCI6IjIiLCJJa2lmYWt0b3JsdWRvZ3J1bGFtYSI6IjEiLCJDYXJpSWQiOiIwIiwiUm9sZXMiOlsiT1JHQU5JS19FTlRFR1JBU1lPTiIsIk9SR0FOSUtfRU5URUdSQVNZT05fQUJPTkUiLCJPUkdBTklLX0VOVEVHUkFTWU9OX0VOREVLUyIsIk9SR0FOSUtfRU5URUdSQVNZT05fQ0lIQVoiLCJPUkdBTklLX0VOVEVHUkFTWU9OX0ZBVFVSQSJdLCJuYmYiOjE3NTUxNTIzMDcsImV4cCI6MTc1NTIzODcwNywiaXNzIjoib3JnYW5payIsImF1ZCI6Im9yZ2FuaWsifQ.rwFlXbnOYISnpKMeE07Z60rmVH89cYpKWIKVxlDyMCCnlg_P3zDH_NklY5A0llZ9jpGWVGLilJ23XECKIKQM_Y2BRcBW7oWIzbheaKfk0Wu-KmlYbwOSxlvLsLYh58olkrvkTooQx-0yDG55UKFB2GW6L5718rmeN4hJyUr_ECNQIUeYVqL649S_O3fvysOsLTqn0b_02S9hXsVuS602Br5Vd-thi2coIbwudYx0i7RlYJXtDbT2PncOveGbBJtnZHg5VkmqErt8u6ZzpSbxbul7n48qNZddlxNCnhpJ28dHdS9rDSqAmDBaTjavY69LFdEoybfQ7oY93PL3M8h2Sw';
-  private DATA_BODY = {
-    orderBy: 'd.Id',
-    order: 'desc',
-    paging: true,
-    sortmode: false,
-    sort: [
-      { orderBy: 'd.Id', order: 'desc' }
-    ],
-    page: 1,
-    nextPage: 100,
-    pageCount: 100,
-    serino: '',
-    aboneno: '',
-    tanim: '',
-    durumid: 1
-  };
-
-  constructor(private http: HttpClient) { }
-
-  getSubscribers(type: string): Observable<Abone[]> {
-
-    let dataPathAbone: string = type == "elk" ? `/api/abone/${type}/listabone` : `/api/abone/${type}/list${type}abone`;
-
-    //   
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.BEARER_TOKEN}`
-    });
-
-    return this.http.post<any>(this.BASE_URL + dataPathAbone, this.DATA_BODY, { headers }).pipe(
-      map(res => Array.isArray(res?.value) ? res.value : [])
-    );
-  }
-
-  getSayac(type: string): Observable<Abone[]> {
-
-    let dataPathSayac: string = `/api/cihaz/${type}/listelksayac`;
-
-    //   /api/cihaz/elk/listelksayac
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.BEARER_TOKEN}`
-    });
-
-    return this.http.post<any>(this.BASE_URL + dataPathSayac, this.DATA_BODY, { headers }).pipe(
-      map(res => Array.isArray(res?.value) ? res.value : [])
-    );
-  }
- 
-}*/
-
+// src/app/services/aboneler.service.ts
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, map, of, catchError, switchMap } from 'rxjs';
+
+import { API_CONFIG } from '../core/config';        // <-- kendi yoluna göre düzelt
+import { AuthService } from '../services/auth.service'; // <-- kendi yoluna göre düzelt
 
 export interface Abone {
   id: number;
   cariad?: string;
   aboneno?: string;
   serino?: string;
-  tanim?: string; // <-- eklendi
+  tanim?: string;
   aboneliktipad: string;
   faturatipad: string;
   durumad?: string;
@@ -89,44 +19,58 @@ export interface Abone {
 
 @Injectable({ providedIn: 'root' })
 export class AbonelerService {
-  private BASE_URL = 'http://13.69.136.67:1091';
-
-  // mjs dosyandaki bearer token — test amaçlı burada duruyor
-  // gerçek sistemde login API'sinden dinamik alınmalı
-  private BEARER_TOKEN = 'eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNyc2Etc2hhMjU2IiwidHlwIjoiSldUIn0.eyJqdGkiOiI4ZTU4Mzg4NS02YzQ2LTQ0ZWMtOTY3ZS1iNzg0MDhkY2UzZDUiLCJLdWxBZGkiOiJ0ZXN0IiwibmFtZSI6InRlc3QiLCJLdWxJZCI6IjQiLCJLdXJ1bUlkIjoiMSIsInR5cCI6IjIiLCJJa2lmYWt0b3JsdWRvZ3J1bGFtYSI6IjEiLCJDYXJpSWQiOiIwIiwiUm9sZXMiOlsiT1JHQU5JS19FTlRFR1JBU1lPTiIsIk9SR0FOSUtfRU5URUdSQVNZT05fQUJPTkUiLCJPUkdBTklLX0VOVEVHUkFTWU9OX0VOREVLUyIsIk9SR0FOSUtfRU5URUdSQVNZT05fQ0lIQVoiLCJPUkdBTklLX0VOVEVHUkFTWU9OX0ZBVFVSQSJdLCJuYmYiOjE3NTUxNTc1OTUsImV4cCI6MTc1NTI0Mzk5NSwiaXNzIjoib3JnYW5payIsImF1ZCI6Im9yZ2FuaWsifQ.zd5OzXADFvaL2PwasXdE38JN-rtoDlOW_9yNcXi5TMIC0aaAn6h1QFhdJ7InNLA7nS8-vj4Vz71ipXeztXalc2npbb5VK-jRVFLYnzDu0fHX74auNJ2iYCR3ICunzbV8TIg2xRCUGMkHVVfgFli_HBQ5lheRDM7OPtQt6PDNdtupHvWlyV2mjqWnhseteOQOF6ulvDcDNfypYTUzKBqpAUlCGJfVUarQc_Rtbal1bHnmZrS7dvrU6pG35xwWobxmcwoOQLj17dJktEoezihpvMBWd3fmZwhDHIbXXCC7KOsp5EECAFKG2i5UhtIH66Nfk6ISdBiJ5CxisqjQc7v1Ow';
-
-
-
-  private DATA_BODY = {
+  private readonly DEFAULT_BODY = {
     orderBy: 'd.Id',
     order: 'desc',
     paging: true,
     sortmode: false,
-    sort: [
-      { orderBy: 'd.Id', order: 'desc' }
-    ],
+    sort: [{ orderBy: 'd.Id', order: 'desc' }],
     page: 1,
     nextPage: 100,
     pageCount: 100,
     serino: '',
     aboneno: '',
     tanim: '',
-    durumid: 1
+    durumid: 1,
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private auth: AuthService
+  ) {}
 
-  getSubscribers(type: string): Observable<Abone[]> {
+  /**
+   * type: 'elk' | 'su' | 'gaz'
+   * Backend path şeması:
+   *  - elk: /api/abone/elk/listabone
+   *  - su : /api/abone/su/listsuabone
+   *  - gaz: /api/abone/gaz/listgazabone
+   */
+  getSubscribers(
+    type: 'elk' | 'su' | 'gaz',
+    overrides: Partial<typeof this.DEFAULT_BODY> = {}
+  ): Observable<Abone[]> {
+    const body = { ...this.DEFAULT_BODY, ...overrides };
 
-    let dataPath: string = type == "elk" ? `/api/abone/${type}/listabone` : `/api/abone/${type}/list${type}abone`;
+    // su ve gaz'da "list{type}abone" formu, elk'te "listabone"
+    const dataPath =
+      type === 'elk'
+        ? `/api/abone/${type}/listabone`
+        : `/api/abone/${type}/list${type}abone`;
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.BEARER_TOKEN}`
-    });
+    const url = API_CONFIG.BASE_URL + dataPath;
 
-    return this.http.post<any>(this.BASE_URL + dataPath, this.DATA_BODY, { headers }).pipe(
-      map(res => Array.isArray(res?.value) ? res.value : [])
+    // Token yoksa login ol; varsa direkt isteği yap.
+    // Authorization header'ını zaten AuthInterceptor ekleyecek.
+    return this.auth.ensureToken$().pipe(
+      switchMap(() => this.http.post<any>(url, body)),
+      map((res: Record<string, any>) =>
+        Array.isArray(res?.['value']) ? (res['value'] as Abone[]) : []
+      ),
+      catchError((err: HttpErrorResponse) => {
+        console.error('[AbonelerService] liste alınamadı:', err);
+        return of([]);
+      })
     );
   }
 }

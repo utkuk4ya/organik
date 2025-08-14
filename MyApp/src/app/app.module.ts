@@ -1,17 +1,23 @@
+// src/app/app.module.ts
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// import { HttpClientModule } from '@angular/common/http'; // <-- KALDIRILDI
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'; // <-- EKLENDİ
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
+// Modüllerin sende varsa ekle
 import { NewCariModalModule } from './cari/new-cari-modal/new-cari-modal.module';
+
+// Interceptor
+import { AuthInterceptor } from './services/auth.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,15 +25,21 @@ import { NewCariModalModule } from './cari/new-cari-modal/new-cari-modal.module'
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    ReactiveFormsModule,
+
+    // HTTP ve formlar
+    HttpClientModule,
     FormsModule,
-    NewCariModalModule
+    ReactiveFormsModule,
+
+    // Feature modüllerin
+    NewCariModalModule, // mevcutsa
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+
+    // İstiyorsan animasyonları async sağlayıcı ile aç
     provideAnimationsAsync(),
-    // ★ HttpClient için önerilen yol:
-    provideHttpClient(withInterceptorsFromDi()),
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
