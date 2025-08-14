@@ -12,11 +12,14 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 import { NewCariModalModule } from './cari/new-cari-modal/new-cari-modal.module';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './services/token.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     ReactiveFormsModule,
@@ -24,7 +27,8 @@ import { NewCariModalModule } from './cari/new-cari-modal/new-cari-modal.module'
     NewCariModalModule
   ],
   providers: [
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy,  },
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     provideAnimationsAsync(),
     // ★ HttpClient için önerilen yol:
     provideHttpClient(withInterceptorsFromDi()),

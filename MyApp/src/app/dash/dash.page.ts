@@ -9,7 +9,6 @@ import { AlertController } from '@ionic/angular';
 })
 export class DashPage implements OnInit {
   isGeneralExpanded: boolean = false;
-  isFenIsleriExpanded: boolean = false;
   isFaturaExpanded: boolean = false;
   isDashboardExpanded: boolean = true;
   isAbonelerExpanded: boolean = false;  // Toggle için eklenen özellik
@@ -26,6 +25,78 @@ export class DashPage implements OnInit {
 
   isDashboardClosed: boolean = false;  // Proper type
 
+  menuItems = [
+    {
+      type: 'elk',
+      icon: 'flash-outline',
+      label: 'Elektrik',
+      expanded: false,
+      children: [
+        { label: 'Aboneler ve Cariler', icon: 'people-outline', link: '/aboneler/elk' },
+        { label: 'Sayaçlar', icon: 'speedometer-outline', link: '../sayaclar' },
+        {
+          label: 'Fatura',
+          icon: 'document-outline',
+          expanded: false,
+          children: [
+            { label: 'Dönemler', icon: 'calendar-outline' },
+            { label: 'Ücretler', icon: 'cash-outline' },
+            { label: 'Fatura İşlemleri', icon: 'list-outline' }
+          ]
+        }
+      ]
+    },
+    {
+      type: 'su',
+      icon: 'water-outline',
+      label: 'Su',
+      expanded: false,
+      children: [
+        { label: 'Aboneler ve Cariler', icon: 'people-outline', link: '/aboneler/su' },
+        { label: 'Sayaçlar', icon: 'speedometer-outline', link: '/sayaclar' },
+        {
+          label: 'Fatura',
+          icon: 'document-outline',
+          expanded: false,
+          children: [
+            { label: 'Dönemler', icon: 'calendar-outline' },
+            { label: 'Ücretler', icon: 'cash-outline' },
+            { label: 'Fatura İşlemleri', icon: 'list-outline' }
+          ]
+        },
+        { label: 'İş Makinesi Kullanım İşleri', icon: 'construct-outline' }
+      ]
+    },
+    {
+      type: 'gaz',
+      icon: 'flame-outline',
+      label: 'Gaz',
+      expanded: false,
+      children: [
+        { label: 'Aboneler ve Cariler', icon: 'people-outline', link: '/aboneler/gaz' },
+        { label: 'Sayaçlar', icon: 'speedometer-outline', link: '/sayaclar' },
+        {
+          label: 'Fatura',
+          icon: 'document-outline',
+          expanded: false,
+          children: [
+            { label: 'Dönemler', icon: 'calendar-outline' },
+            { label: 'Ücretler', icon: 'cash-outline' },
+            { label: 'Fatura İşlemleri', icon: 'list-outline' }
+          ]
+        }
+      ]
+    }
+  ];
+
+  toggleItem(item: any) {
+    item.expanded = !item.expanded;
+  }
+
+  toggleChild(item: any, child: any) {
+    child.expanded = !child.expanded;
+  }
+
   constructor(private router: Router, private alertController: AlertController) { }
 
   ngOnInit() {
@@ -37,16 +108,11 @@ export class DashPage implements OnInit {
   }
 
   navigateToDashboard() {
-    this.router.navigate(["/dash"]); 
-
+    this.router.navigate(["/dash"]);
   }
 
   toggleGeneral() {
     this.isGeneralExpanded = !this.isGeneralExpanded;
-  }
-
-  toggleFenIsleri() {
-    this.isFenIsleriExpanded = !this.isFenIsleriExpanded;
   }
 
   toggleFatura() {

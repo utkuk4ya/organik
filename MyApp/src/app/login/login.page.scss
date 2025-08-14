@@ -1,5 +1,5 @@
 ion-content {
-  --background: rgb(20, 60, 108); /* Arka plan rengini ayarla */
+  --background: rgb(18, 49, 99); /* Arka plan rengini ayarla */
 }
 
 .login-container {
@@ -27,12 +27,19 @@ ion-content {
   margin: auto; /* Ortalamak için */
 }
 
+#login{
+  border-radius: 15px;
+  height: 50px;
+  align-items: center;
+}
+
 ion-card {
   width: 100%;
   max-width: 400px; /* Maksimum genişlik */
   background-color: rgb(245, 155, 39); /* Kutu arka plan rengini ayarla */
   padding: 14px; /* İçerik kenar boşluğu */
   border-radius: 12px; /* Köşeleri yuvarlat */
+  margin: auto;
 }
 
 ion-card-header {

@@ -1,159 +1,132 @@
-<ion-content>
-  <div class="dashboard-container">
-    <!-- Back Button -->
-    <ion-header>
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-button (click)="goToLogin()">
-            <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-        <ion-title>Dashboard</ion-title>
-        <ion-buttons slot="end">
-          <ion-button (click)="toggleDashboard()">
-            <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-      </ion-toolbar>
-    </ion-header>
+<body>
+  <ion-content class="mainContainer">
+    <div class="dashboard-container">
+      <!-- Back Button -->
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="goToLogin()">
+              <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          <ion-title>Dashboard</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="toggleDashboard()">
+              <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
 
-    <!-- Card and List -->
-    <ion-card [class.closed]="isDashboardClosed">
-      <ion-card-header>
-        <ion-card-title>Organik</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-list>
-          <!-- Genel Başlık -->
-          <ion-item button (click)="toggleGeneral()">
-            <ion-icon slot="start" name="settings-outline"></ion-icon>
-            <ion-label>Genel</ion-label>
-            <ion-icon slot="end" [name]="isGeneralExpanded ? 'chevron-up-outline' : 'chevron-down-outline'"></ion-icon>
-          </ion-item>
-
-          <!-- Genel Alt Başlıklar -->
-          <div *ngIf="isGeneralExpanded" class="sub-items">
-            <ion-item [routerLink]="['/cari/list']">
-              <ion-icon slot="start" name="list-outline"></ion-icon>
-              <ion-label>Cari Liste</ion-label>
-            </ion-item>
-            <ion-item button (click)="navigateToDashboard()">
-              <ion-icon slot="start" name="document-outline"></ion-icon>
-              <ion-label>Fatura Kalem Tanım</ion-label>
-            </ion-item>
-            <ion-item button (click)="navigateToDashboard()">
-              <ion-icon slot="start" name="code-outline"></ion-icon>
-              <ion-label>Muhasebe Entegrasyon Kod İşlemleri</ion-label>
-            </ion-item>
-            <ion-item button (click)="navigateToDashboard()">
-              <ion-icon slot="start" name="home-outline"></ion-icon>
-              <ion-label>Gayrimenkuller</ion-label>
-            </ion-item>
-            <ion-item button (click)="navigateToDashboard()">
-              <ion-icon slot="start" name="person-outline"></ion-icon>
-              <ion-label>Mülk Sahibi</ion-label>
-            </ion-item>
-            <ion-item button (click)="navigateToDashboard()">
-              <ion-icon slot="start" name="pin-outline"></ion-icon>
-              <ion-label>Ulusal Adres Bilgileri</ion-label>
-            </ion-item>
-            <ion-item button (click)="navigateToDashboard()">
-              <ion-icon slot="start" name="cash-outline"></ion-icon>
-              <ion-label>Ücretler</ion-label>
-            </ion-item>
-            <ion-item button (click)="navigateToDashboard()">
-              <ion-icon slot="start" name="cog-outline"></ion-icon>
-              <ion-label>Parametreler</ion-label>
-            </ion-item>
-          </div>
-
-          <!-- Fen İşleri Başlık -->
-          <ion-item button (click)="toggleFenIsleri()">
-            <ion-icon slot="start" name="business-outline"></ion-icon>
-            <ion-label>Fen İşleri</ion-label>
-            <ion-icon slot="end"
-              [name]="isFenIsleriExpanded ? 'chevron-up-outline' : 'chevron-down-outline'"></ion-icon>
-          </ion-item>
-
-          <!-- Fen İşleri Alt Başlıklar -->
-          <div *ngIf="isFenIsleriExpanded" class="sub-items">
-            <ion-item button (click)="navigateToDashboard()">
-              <ion-icon slot="start" name="home-outline"></ion-icon>
-              <ion-label>Ana Sayfa</ion-label>
+      <!-- Card and List -->
+      <ion-card *ngIf="isDashboardClosed">
+        <ion-card-header>
+          <ion-card-title>Organik</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <!-- Genel Başlık -->
+            <ion-item button (click)="toggleGeneral()">
+              <ion-icon slot="start" name="settings-outline"></ion-icon>
+              <ion-label>Genel</ion-label>
+              <ion-icon slot="end"
+                [name]="isGeneralExpanded ? 'chevron-up-outline' : 'chevron-down-outline'"></ion-icon>
             </ion-item>
 
-            <ion-item button (click)="toggleAboneler()">
-              <ion-icon slot="start" name="people-outline"></ion-icon>
-              <ion-label>Aboneler ve Cariler</ion-label>
-              <ion-icon slot="end" [name]="isAbonelerExpanded ? 'chevron-up-outline' : 'chevron-down-outline'"></ion-icon>
-            </ion-item>
-
-            <div *ngIf="isAbonelerExpanded" class="sub-items">
-              <ion-item [routerLink]="['/aboneler/elk']">
-                <ion-icon slot="start" name="flash-outline"></ion-icon>
-                <ion-label>Elektrik</ion-label>
+            <!-- Genel Alt Başlıklar -->
+            <div *ngIf="isGeneralExpanded" class="sub-items">
+              <ion-item [routerLink]="['/cari/list']">
+                <ion-icon slot="start" name="list-outline"></ion-icon>
+                <ion-label>Cari Liste</ion-label>
               </ion-item>
-
-              <ion-item [routerLink]="['/aboneler/su']">
-                <ion-icon slot="start" name="water-outline"></ion-icon>
-                <ion-label>Su</ion-label>
-              </ion-item>
-
-              <ion-item [routerLink]="['/aboneler/gaz']">
-                <ion-icon slot="start" name="flame-outline"></ion-icon>
-                <ion-label>Gaz</ion-label>
-              </ion-item>
-
-              <!-- ✅ YENİ: Elektrik Sayaçları -->
-              <ion-item [routerLink]="['/sayac']">
-                <ion-icon slot="start" name="podium-outline"></ion-icon>
-                <ion-label>Elektrik Sayaçları</ion-label>
-              </ion-item>
-            </div>
-
-            <ion-item button (click)="navigateToDashboard()">
-              <ion-icon slot="start" name="construct-outline"></ion-icon>
-              <ion-label>İş Makinesi Kullanım İşleri</ion-label>
-            </ion-item>
-
-            <ion-item button (click)="toggleFatura()">
-              <ion-icon slot="start" name="document-outline"></ion-icon>
-              <ion-label>Fatura</ion-label>
-              <ion-icon slot="end" [name]="isFaturaExpanded ? 'chevron-up-outline' : 'chevron-down-outline'"></ion-icon>
-            </ion-item>
-
-            <!-- Fatura Alt Başlıklar -->
-            <div *ngIf="isFaturaExpanded" class="sub-items">
               <ion-item button (click)="navigateToDashboard()">
-                <ion-icon slot="start" name="calendar-outline"></ion-icon>
-                <ion-label>Dönemler</ion-label>
+                <ion-icon slot="start" name="document-outline"></ion-icon>
+                <ion-label>Fatura Kalem Tanım</ion-label>
+              </ion-item>
+              <ion-item button (click)="navigateToDashboard()">
+                <ion-icon slot="start" name="code-outline"></ion-icon>
+                <ion-label>Muhasebe Entegrasyon Kod İşlemleri</ion-label>
+              </ion-item>
+              <ion-item button (click)="navigateToDashboard()">
+                <ion-icon slot="start" name="home-outline"></ion-icon>
+                <ion-label>Gayrimenkuller</ion-label>
+              </ion-item>
+              <ion-item button (click)="navigateToDashboard()">
+                <ion-icon slot="start" name="person-outline"></ion-icon>
+                <ion-label>Mülk Sahibi</ion-label>
+              </ion-item>
+              <ion-item button (click)="navigateToDashboard()">
+                <ion-icon slot="start" name="pin-outline"></ion-icon>
+                <ion-label>Ulusal Adres Bilgileri</ion-label>
               </ion-item>
               <ion-item button (click)="navigateToDashboard()">
                 <ion-icon slot="start" name="cash-outline"></ion-icon>
                 <ion-label>Ücretler</ion-label>
               </ion-item>
               <ion-item button (click)="navigateToDashboard()">
-                <ion-icon slot="start" name="list-outline"></ion-icon>
-                <ion-label>Fatura İşlemleri</ion-label>
+                <ion-icon slot="start" name="cog-outline"></ion-icon>
+                <ion-label>Parametreler</ion-label>
               </ion-item>
             </div>
-          </div>
 
-          <!-- Lisanssız Üretim Başvuru -->
-          <ion-item button (click)="showLisanssizUretimAlert()">
-            <ion-icon slot="start" name="sunny-outline"></ion-icon>
-            <ion-label>Lisanssız Üretim Başvur</ion-label>
-          </ion-item>
-        </ion-list>
-        <ion-text color="secondary" style="text-align: center;">Version 24-07 - 31/07/2024</ion-text>
-      </ion-card-content>
-    </ion-card>
+            <ion-list>
+              <ng-container *ngFor="let item of menuItems">
+                <!-- Ana Menü -->
+                <ion-item button (click)="toggleItem(item)">
+                  <ion-icon slot="start" [name]="item.icon"></ion-icon>
+                  <ion-label>{{ item.label }}</ion-label>
+                  <ion-icon slot="end"
+                    [name]="item.expanded ? 'chevron-up-outline' : 'chevron-down-outline'"></ion-icon>
+                </ion-item>
 
-    <!-- Grafik Bileşeni -->
-    <div class="chart-container">
-      <ngx-charts-bar-vertical [results]="chartData" [xAxis]="true" [yAxis]="true" [showXAxisLabel]="true"
-        [xAxisLabel]="'Kategori'" [showYAxisLabel]="true" [yAxisLabel]="'Sayı'" [view]="[chartWidth, chartHeight]">
-      </ngx-charts-bar-vertical>
+                <!-- Alt Menü -->
+                <div *ngIf="item.expanded" class="sub-items">
+                  <ng-container *ngFor="let child of item.children">
+
+                    <ion-item *ngIf="!child.children" [routerLink]="[child.link]" button>
+                      <ion-icon slot="start" [name]="child.icon"></ion-icon>
+                      <ion-label>{{ child.label }}</ion-label>
+                    </ion-item>
+
+                    <!-- Fatura gibi alt kategorisi olan -->
+                    <ion-item *ngIf="child.children" button (click)="toggleChild(item, child)">
+                      <ion-icon slot="start" [name]="child.icon"></ion-icon>
+                      <ion-label>{{ child.label }}</ion-label>
+                      <ion-icon slot="end"
+                        [name]="child.expanded ? 'chevron-up-outline' : 'chevron-down-outline'"></ion-icon>
+                    </ion-item>
+
+                    <!-- Fatura Alt Başlıklar -->
+                    <div *ngIf="child.children && child.expanded" class="sub-items">
+                      <ion-item *ngFor="let sub of child.children">
+                        <ion-icon slot="start" [name]="sub.icon"></ion-icon>
+                        <ion-label>{{ sub.label }}</ion-label>
+                      </ion-item>
+                    </div>
+
+                  </ng-container>
+                </div>
+              </ng-container>
+            </ion-list>
+
+            <!-- Lisanssız Üretim Başvuru -->
+            <ion-item button (click)="showLisanssizUretimAlert()">
+              <ion-icon slot="start" name="sunny-outline"></ion-icon>
+              <ion-label>Lisanssız Üretim Başvur</ion-label>
+            </ion-item>
+          </ion-list>
+
+          <ion-text color="secondary" style="text-align: center; position: relative; top: 9px;">Version
+            11/08/2025</ion-text>
+        </ion-card-content>
+      </ion-card>
+
+      <!-- Grafik Bileşeni -->
+      <div class="chart-container">
+        <ngx-charts-bar-vertical [results]="chartData" [xAxis]="true" [yAxis]="true" [showXAxisLabel]="true"
+          [xAxisLabel]="'Kategori'" [showYAxisLabel]="true" [yAxisLabel]="'Sayı'" [view]="[chartWidth, chartHeight]">
+        </ngx-charts-bar-vertical>
+      </div>
     </div>
-  </div>
-</ion-content>
+  </ion-content>
+</body>

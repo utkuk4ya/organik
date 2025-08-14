@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { NewCariModalComponent } from '../new-cari-modal/new-cari-modal.component'; // Modal bileşenini import edin
 import { Cari } from '../cari.model'; // Cari modelini import edin
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -21,9 +22,8 @@ export class ListPage {
   };
 
   cariList: Cari[] = []; // Cari listesi
-  router: any;
 
-  constructor(private modalCtrl: ModalController) {}
+  constructor(private modalCtrl: ModalController, private router: Router) {}
 
   async openNewCariModal() {
     const modal = await this.modalCtrl.create({
@@ -67,6 +67,6 @@ export class ListPage {
   }
 
   goBack() {
-    this.router.navigate(['dash']); // Replace '/dashboard' with the actual route of your Dashboard page
+    this.router.navigate(['/dash']); // Replace '/dashboard' with the actual route of your Dashboard page
   }
 }
