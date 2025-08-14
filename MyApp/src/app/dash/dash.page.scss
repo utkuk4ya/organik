@@ -3,7 +3,7 @@ body {
   --background: rgb(245, 155, 39);
 }
 
-ion-content{
+ion-content {
   background-color: rgb(245, 155, 39);
 }
 
@@ -11,6 +11,9 @@ ion-content{
   --background: rgb(245, 155, 39);
 }
 
+ion-title{
+  font-weight: 700;
+}
 .dashboard-container {
   margin-top: 20px; // Üstten boşluk
   padding: 10px; // İçerik dolgusu
@@ -24,6 +27,10 @@ ion-card {
   margin: 20px auto;
 }
 
+ion-icon{
+  color: white;
+}
+
 ion-header,
 ion-toolbar {
   border-radius: 25px;
@@ -32,9 +39,6 @@ ion-toolbar {
 ion-card {
   border-radius: 20px;
 }
-
-
-
 
 .dashboard-container {
   --background: rgb(18, 49, 99);
@@ -61,6 +65,13 @@ ion-card.expanded {
 ion-card {
   margin-left: 0; // Kapalı durumda
 
+}
+
+ion-item {
+  ion-label {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+  }
 }
 
 .chart-container {
