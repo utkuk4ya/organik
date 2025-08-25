@@ -33,10 +33,9 @@
   <ion-spinner *ngIf="isLoading" class="ion-margin"></ion-spinner>
 
   <ng-container *ngIf="!isLoading && sayaclar.length; else empty">
-    <ion-list inset="true">
+    <ion-list class="customList" inset="true">
       <ion-item *ngFor="let s of sayaclar">
         <ion-label>
-          <h5>{{ s.cariad || '-' }}</h5>
           <h6>Abone No: {{ s.aboneno || '-' }}</h6>
           <p>Seri No: {{ s.serino || '-' }}</p>
           <p>Tanım: {{ s.tanim || '-' }}</p>

@@ -5,23 +5,24 @@ ion-title {
 
 ion-toolbar {
   --background: rgb(18, 49, 99);
-  
+
 }
 
 .empty {
- 
+
   height: 60vh;
   display: grid;
   place-content: center;
   text-align: center;
   opacity: 0.7;
   color: rgb(0, 0, 0);
-  
 
-  h2{
+
+  h2 {
     font-size: 1.2em;
     font-weight: 700;
   }
+
   ion-icon {
     margin: 2px auto;
     text-align: center;
@@ -35,12 +36,36 @@ div.sayac {
   text-align: center;
 }
 
-ion-label{
+ion-label {
   color: white;
   font-size: 1.23em;
   font-weight: 800;
+
+  h6,
+  p {
+    padding: 12px;
+    color: white;
+  }
+}
+
+ng-container {
+  --background: none;
 }
 
 ion-content {
   --background: rgb(245, 155, 39);
+}
+
+.customList ion-item {
+  --background: rgb(18, 49, 99);
+  text-align: center;
+  border: 1px solid rgb(18, 49, 99);
+  border-radius: 25px;
+}
+
+.customList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: rgb(245, 155, 39);
 }

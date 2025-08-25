@@ -36,11 +36,23 @@
             <!-- Genel Alt Başlıklar -->
             <div *ngIf="isGeneralExpanded" class="sub-items">
               <ion-item [routerLink]="['/cari/list']">
-                <ion-icon slot="start" name="list-outline"></ion-icon>
+                <ion-icon slot="start" name="people-outline"></ion-icon>
                 <ion-label>Cari Liste</ion-label>
               </ion-item>
+              <ion-item [routerLink]="['/cari/list']">
+                <ion-icon slot="start" name="layers-outline"></ion-icon>
+                <ion-label>Cari Grupları</ion-label>
+              </ion-item>
+              <ion-item [routerLink]="['/cari/list']">
+                <ion-icon slot="start" name="document-text-outline"></ion-icon>
+                <ion-label>Abonelik Başvuru Sistemi</ion-label>
+              </ion-item>
+              <ion-item [routerLink]="['/cari/list']">
+                <ion-icon slot="start" name="receipt-outline"></ion-icon>
+                <ion-label>Fatura İcmal</ion-label>
+              </ion-item>
               <ion-item button (click)="navigateToDashboard()">
-                <ion-icon slot="start" name="document-outline"></ion-icon>
+                <ion-icon slot="start" name="file-tray-full-outline"></ion-icon>
                 <ion-label>Fatura Kalem Tanım</ion-label>
               </ion-item>
               <ion-item button (click)="navigateToDashboard()">
@@ -48,7 +60,7 @@
                 <ion-label>Muhasebe Entegrasyon Kod İşlemleri</ion-label>
               </ion-item>
               <ion-item button (click)="navigateToDashboard()">
-                <ion-icon slot="start" name="home-outline"></ion-icon>
+                <ion-icon slot="start" name="business-outline"></ion-icon>
                 <ion-label>Gayrimenkuller</ion-label>
               </ion-item>
               <ion-item button (click)="navigateToDashboard()">
@@ -56,19 +68,30 @@
                 <ion-label>Mülk Sahibi</ion-label>
               </ion-item>
               <ion-item button (click)="navigateToDashboard()">
-                <ion-icon slot="start" name="pin-outline"></ion-icon>
+                <ion-icon slot="start" name="location-outline"></ion-icon>
                 <ion-label>Ulusal Adres Bilgileri</ion-label>
+              </ion-item>
+              <ion-item [routerLink]="['/cari/list']">
+                <ion-icon slot="start" name="briefcase-outline"></ion-icon>
+                <ion-label>Vergi Dairesi</ion-label>
               </ion-item>
               <ion-item button (click)="navigateToDashboard()">
                 <ion-icon slot="start" name="cash-outline"></ion-icon>
-                <ion-label>Ücretler</ion-label>
+                <ion-label>Ücret & Parametre</ion-label>
               </ion-item>
               <ion-item button (click)="navigateToDashboard()">
-                <ion-icon slot="start" name="cog-outline"></ion-icon>
-                <ion-label>Parametreler</ion-label>
+                <ion-icon slot="start" name="shield-checkmark-outline"></ion-icon>
+                <ion-label>Kullanıcı ve Yetki İşlemleri</ion-label>
+              </ion-item>
+              <ion-item [routerLink]="['/cari/list']">
+                <ion-icon slot="start" name="notifications-outline"></ion-icon>
+                <ion-label>Bildirimler</ion-label>
+              </ion-item>
+              <ion-item [routerLink]="['/cari/list']">
+                <ion-icon slot="start" name="document-lock-outline"></ion-icon>
+                <ion-label>Sistem Logları</ion-label>
               </ion-item>
             </div>
-
             <ion-list>
               <ng-container *ngFor="let item of menuItems">
                 <!-- Ana Menü -->
@@ -114,11 +137,6 @@
               <ion-label>Sayaçlar</ion-label>
             </ion-item>
 
-            <!-- Lisanssız Üretim Başvuru -->
-            <ion-item button (click)="showLisanssizUretimAlert()">
-              <ion-icon slot="start" name="sunny-outline"></ion-icon>
-              <ion-label>Lisanssız Üretim Başvur</ion-label>
-            </ion-item>
           </ion-list>
 
           <ion-text color="secondary" style="text-align: center; position: relative; top: 2px;">Version

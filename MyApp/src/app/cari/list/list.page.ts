@@ -21,9 +21,20 @@ export class ListPage {
     type: 'gerçek'
   };
 
+  formFields: { label: string; model: keyof Cari; type: string }[] = [
+    { label: 'Cari Ad', model: 'cariAd', type: 'text' },
+    { label: 'Muhasebe Kodu', model: 'muhKod', type: 'text' },
+    { label: 'Unvan', model: 'unvan', type: 'text' },
+    { label: 'E-Posta', model: 'eposta', type: 'email' },
+    { label: 'Vergi No', model: 'vergiNo', type: 'text' },
+    { label: 'TC Kimlik', model: 'tcKimlik', type: 'text' },
+    { label: 'Nace Kodu', model: 'naceKodu', type: 'text' },
+  ];
+
+
   cariList: Cari[] = []; // Cari listesi
 
-  constructor(private modalCtrl: ModalController, private router: Router) {}
+  constructor(private modalCtrl: ModalController, private router: Router) { }
 
   async openNewCariModal() {
     const modal = await this.modalCtrl.create({
